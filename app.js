@@ -34,7 +34,7 @@ app.use(session({
     cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},  //30 days
     store: new MongoStore({
         db: settings.db,
-        host: 'mongodb://<dbuser>:<dbpassword>@ds053216.mlab.com:53216/heroku_vdxvz122',
+        host: 'mongodb://<dbuser>:<dbpassword>@ds053216.mlab.com:53216/heroku_vdxvz122',})
 //    saveUninitialized: true
 }));  //self
 app.use(flash());   //self
