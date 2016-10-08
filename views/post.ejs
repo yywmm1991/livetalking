@@ -1,0 +1,63 @@
+<% include header %>
+
+<br/>
+<br/>
+
+<div class="container">
+	<div class="col-sm-4">
+		<form method="post">
+			<h3>
+				<a><%= user.name %></a>
+			</h3>
+
+			<h5>Text</h5>
+			<textarea name="post" class="form-control" rows="5"></textarea>
+			<br />
+			<input class="btn btn-info" type="submit" value="send" />
+		</form>
+	</div>
+
+	<div class="col-sm-6">
+		<div id="talkBox">
+			<% posts.forEach(function(post, index){ %>
+
+			<p class="info">
+				<a href="#"><%= post.name %></a>
+				<%= post.time.minute %>
+			</p>
+			<p><%= post.post %></p>
+
+			<% }) %>
+		</div>
+		<div id="test"></div>
+	</div>
+</div>
+
+<script>
+var flagTime;
+(function update(){
+	$.ajax({
+		url: "/post/get",
+		type: "GET",
+		success: function(data,status){
+			if(data[0].time.iden != flagTime){
+				talkbox(data[0]);
+				flagTime = data[0].time.iden;
+			}
+
+			setTimeout(update,1000);
+		}
+	});
+})();
+
+function talkbox(data){
+	var str = '<p class="info">'+
+	'<a href="#">'+data.name+'</a>'
+	+data.time.minute+
+	'</p><p>'+data.post+'</p>';
+	$(str).insertBefore("#talkBox p:first");
+};
+
+</script>
+
+<% include footer %>

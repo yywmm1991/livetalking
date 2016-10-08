@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#talkBox {
+	border: 1px solid #bbb;
+	overflow-y: scroll;
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #bbb;
+	height: 430px;
+}
+
+footer>p{
+	text-align: center;
+}

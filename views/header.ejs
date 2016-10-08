@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+	<script src="/javascripts/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Chatting Shawn</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="/home">Home</a>
+					</li>
+					<li>
+						<a href="/post">
+							Chatting
+						</a>
+					</li>
+				</ul>
+				
+
+				<ul class="nav navbar-nav navbar-right">
+					<% if(user){ %>
+					<li>
+						<a>Welcome, 
+							<%= user.name %>
+						</a>
+					</li>
+					<li> 
+						<a href="/logout">Logout</a>
+					</li>
+					<% }else{ %>
+					<li>
+						<a href="/login">Login</a>
+					</li>
+					<li>
+						<a href="/reg">Sign in</a>
+					</li>
+					<% } %>
+				</ul>
+
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="container">
