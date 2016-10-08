@@ -18,6 +18,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+var port = process.env.PORT || 3000;
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -33,8 +34,7 @@ app.use(session({
     cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},  //30 days
     store: new MongoStore({
         db: settings.db,
-        host: settings.host,
-        port: settings.port}),
+        host: 'mongodb://<dbuser>:<dbpassword>@ds053216.mlab.com:53216/heroku_vdxvz122',
 //    saveUninitialized: true
 }));  //self
 app.use(flash());   //self
@@ -50,7 +50,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-var port = '3000';
 var server = app.listen(port, function () {
   var host = server.address().address
   console.log('Example server listening at http://%s:%s', host, port)
