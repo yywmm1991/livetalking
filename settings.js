@@ -1,7 +1,6 @@
 module.exports = {
 	cookieSecret: 'MicroBlog',
 	db: 'MicroBlog',
-	host: 'localhost',
-	port: 27017,
-	connectionstring:'mongodb://localhost/livetalk'
+	host: 'mongodb://yywmm:zzq690315@ds053216.mlab.com:53216/heroku_vdxvz122',
+	//connectionstring:'mongodb://yywmm1991:zzq690315@ds053216.mlab.com:53216/heroku_vdxvz122'
 }
