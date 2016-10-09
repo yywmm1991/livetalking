@@ -35,7 +35,7 @@ app.use(session({
     store: new MongoStore({
         db: settings.db,
         host: settings.host,
-        }),
+        port: settings.port}),
 //    saveUninitialized: true
 }));  //self
 app.use(flash());   //self
@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
 
 // error handlers
 var server = app.listen(port, function () {
-  var host = server.address().address
+  var host = server.address().address;
   console.log('Example server listening at http://%s:%s', host, port)
 })
 // development error handler

@@ -3,6 +3,7 @@ var router = express.Router();
 var crypto = require('crypto');
 var User = require('../models/user.js');
 var Post = require('../models/post.js');
+var Topic = require('../models/topic.js');
 var flag = 0;
 
 /* GET home page. */
@@ -140,6 +141,46 @@ router.post('/post', function(req, res){
 		}
 		req.flash('success', "success in publish");
 		res.redirect('/post');
+	});
+});
+
+router.get('/topics', function(req, res){
+	Topic.get( function(err, topics){
+		// while(posts[0].time.iden === flag){
+		// 	setTimeout(function(){},1000);
+		// }
+		// flag = posts[0].time.iden;
+		//res.send(topics);
+		res.render('topics.ejs', {
+		title: 'Topics', 
+		user: req.session.user,
+		topics: topics,
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	});
+	});
+});
+
+router.get('/topic', function(req, res, next) {
+	res.render('topic.ejs', {
+		title: 'TopicCreate', 
+		user: req.session.user,
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	});
+});
+
+router.post('/topic', function(req, res){
+	var currentUser = req.session.user;
+	var topic = new Topic(req.body.topic, currentUser.name, req.body.category);
+	// flag = post.time.iden;
+	topic.save(function(err){
+		if(err){
+			req.flash('error', err);
+			return res.redirect('/');
+		}
+		req.flash('success', "success in publish");
+		res.redirect('/');
 	});
 });
 

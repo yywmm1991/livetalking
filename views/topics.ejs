@@ -1,0 +1,49 @@
+<% include header %>
+<div class="container">
+                    <div class="col-xs-12">
+						<h1>LiveTalk</h1>
+					</div> <!--col-->
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 category">
+					<h2>Homework Help</h2>
+					<div class="category-post">
+					<% topics.forEach(function(topic, index){ %>
+                 <%   if (topic.category == "homework") { %>
+				<a href="/post"><%= topic.topic %></a>
+			     <% }}) %>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 category">
+					<h2>Politics</h2>
+					<div class="category-post">
+						<% topics.forEach(function(topic, index){ %>
+                 <%   if (topic.category == "politics") { %>
+				<a href="/post"><%= topic.topic %></a>
+			     <% }}) %>
+					</div>
+				</div>
+			</div> <!--1st row-->
+			<div class="row">
+				<div class="col-xs-12 col-sm-6  category">
+					<h2>Someone to talk to</h2>
+					<div class="category-post">
+						<% topics.forEach(function(topic, index){ %>
+                 <%   if (topic.category == "talk") { %>
+				<a href="post"><%= topic.topic %></a>
+			     <% }}) %>
+					</div>
+				</div> 
+				<div class="col-xs-12 col-sm-6  category">
+					<h2>Research</h2>
+					<div class="category-post">
+						<% topics.forEach(function(topic, index){ %>
+                 <%   if (topic.category == "research") { %>
+				<a href="post"><%= topic.topic %></a>
+			     <% }}) %>
+					</div>
+				</div>
+			</div> <!--2nd row-->
+		</div>
+	</div>
+</div>
+<% include footer %>
