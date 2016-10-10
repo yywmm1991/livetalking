@@ -19,3 +19,11 @@ a {
 footer>p{
 	text-align: center;
 }
+
+h1 {
+	color: #5bdb99;
+}
+.btn.btn.btn-primary.btn-large{
+
+	border-color: #5cbddb;
+}
